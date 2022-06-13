@@ -10,19 +10,27 @@ class Datapoint():
         self.label = label
 
 
-def dot(a: list[float], b: list[float]) -> float:
+def dot(a: list, b: list) -> float:
     if len(a) != len(b):
         raise TypeError(f"Dimension mismatch {len(a)=}, {len(b)=}")
     
     return sum(x*y for x,y in zip(a,b))
 
 
-def perceptron(datapoints: list[Datapoint]) -> list[float]:
+def perceptron(datapoints: list) -> list:
+    """
+    If 
+        y_i (θ . x_i) <= 0
+    a point has been misclassified. 
+
+    This algorithm updates theta for misclassified points by the adding(subtracting) the misclassified point if y=1(y=-1)
+        θ = θ + y_i * x_i
+    """
     theta = [0,0]
     while (not test_perceptron(theta, datapoints)):
         for datapoint in datapoints:
             if dot(datapoint.data.vec, theta)*datapoint.label<=0:
-                theta = [theta[idx] + datapoint.label * datapoint.data.vec[idx] for idx, _ in enumerate(theta)]
+                theta = [th + datapoint.label * datapoint.data.vec[idx] for idx, th in enumerate(theta)]
     return theta
 
 def test_perceptron(theta, datapoints):
@@ -52,6 +60,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
 
