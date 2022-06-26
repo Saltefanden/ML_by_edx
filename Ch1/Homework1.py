@@ -111,7 +111,21 @@ def Ex2b():
         Datapoint([-1, -1],-1),
         Datapoint([2,2],-1),
     ]
-    loud_perceptron_with_offset(dps, max_mistakes=4000)
+    out = loud_perceptron_with_offset(dps, max_mistakes=4000)
+    if out == None:
+        from sklearn.linear_model import Perceptron
+        import numpy as np
+
+        X = np.ndarray(shape=(len(dps),2))
+        y = np.ndarray(shape=(len(dps),))
+        for idx, dp in enumerate(dps):
+            X[idx,:] = dp.data
+            y[idx] = dp.label
+
+        classifier = Perceptron(max_iter=40, random_state=0)
+        classifier.fit(X,y)
+        print(f"Theta={classifier.coef_}.\t Theta0={classifier.intercept_}")
+
 
 
 def main():

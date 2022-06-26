@@ -17,6 +17,10 @@ def dot(a: list, b: list) -> float:
     return sum(x*y for x,y in zip(a,b))
 
 
+def listadd(th: list, x: list, sign: int=1) -> list:
+    return [a + sign * b for a, b in zip(th, x)] 
+
+
 def perceptron(datapoints: list) -> list:
     """
     If 
@@ -30,7 +34,8 @@ def perceptron(datapoints: list) -> list:
     while (not test_perceptron(theta, datapoints)):
         for datapoint in datapoints:
             if dot(datapoint.data.vec, theta)*datapoint.label<=0:
-                theta = [th + datapoint.label * datapoint.data.vec[idx] for idx, th in enumerate(theta)]
+                theta = listadd(theta, datapoint.data.vec, datapoint.label)
+                # theta = [th + datapoint.label * datapoint.data.vec[idx] for idx, th in enumerate(theta)]
     return theta
 
 def test_perceptron(theta, datapoints):
