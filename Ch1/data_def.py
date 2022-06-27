@@ -1,6 +1,6 @@
 # Go to drawdata.xyz to draw the datapoints
 
-with open('./data.csv', 'r') as file:
+with open('./data2.csv', 'r') as file:
     lines = [line.rstrip().split(',') for line in file.readlines()]
     xpos = [(int(col[0]), int(col[1])) for col in lines if col[2] == 'a']
     xneg = [(int(col[0]), int(col[1])) for col in lines if col[2] == 'b']

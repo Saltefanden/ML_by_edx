@@ -127,12 +127,19 @@ def Ex2b():
         print(f"Theta={classifier.coef_}.\t Theta0={classifier.intercept_}")
 
 
+def Ex3():
+    """All theoretical"""
+
+
+def Ex4():
+    pass
 
 def main():
     # Ex1a()
     # Ex1c()
     # Ex2a()
     Ex2b()
+
 
     pass
 
