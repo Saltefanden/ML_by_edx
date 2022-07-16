@@ -1,9 +1,15 @@
 # Go to drawdata.xyz to draw the datapoints
+import random
 
 with open('./data2.csv', 'r') as file:
     lines = [line.rstrip().split(',') for line in file.readlines()]
     xpos = [(int(col[0]), int(col[1])) for col in lines if col[2] == 'a']
     xneg = [(int(col[0]), int(col[1])) for col in lines if col[2] == 'b']
+
+# Ensure equal numbers of negative and positive points:
+# m = min(len(xpos), len(xneg))
+# xpos, xneg = zip(*random.sample(list(zip(xpos, xneg)), m))
+
 
 y_def = [1] * len(xpos) + [-1] * len(xneg)
 x_def = xpos + xneg

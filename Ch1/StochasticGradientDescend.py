@@ -6,18 +6,22 @@ eucl = lambda x: norm(x, 2)
 
 def stochastic_gradient_descend(X: tuple[int, int], Y: int, max_iter=40, R_lambda=1):
     hinge_loss = lambda z: max(0, 1 - z)
-    xy_points = zip(X, Y)
     theta = [0] * len(X[0])
     theta0 = 0
     for t in range(max_iter):
         learning_rate = 1/(1+t)
-        xi, yi = random.choice(xy_points)
+        i = random.randint(0,len(X)-1)
+        xi, yi = X[i], Y[i]
+        norm_theta = eucl(theta)
         if hinge_loss(yi*(dot(theta, xi) + theta0)) > 0:
-            theta += learning_rate * ( xi*yi - R_lambda * eucl(theta))
-            theta0 += yi
+            theta = list(map(lambda theta, xi: 
+                theta  + learning_rate * (yi*xi - R_lambda * theta), 
+                theta, xi))
+            theta0 += learning_rate * yi
         else:
-            theta += learning_rate * (   0   - R_lambda * eucl(theta))
-
+            theta = list(map(lambda theta, xi: 
+                theta  + learning_rate * (0 - R_lambda * theta), 
+                theta, xi))
     return theta, theta0
 
 
