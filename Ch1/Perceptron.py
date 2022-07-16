@@ -1,5 +1,3 @@
-from data_def import x_def, y_def
-
 dot = lambda x, y: sum(map(lambda x, y: x*y, x, y)) 
 norm = lambda x, p: sum(map(lambda x: x**p, x))**(1/p)
 eucl = lambda x: norm(x, 2)
