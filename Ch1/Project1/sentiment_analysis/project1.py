@@ -300,7 +300,13 @@ def classifier_accuracy(
     accuracy of the trained classifier on the validation data.
     """
     # Your code here
-    raise NotImplementedError
+    theta, theta0 = classifier(train_feature_matrix, train_labels, **kwargs)
+    train_prediction = classify(train_feature_matrix, theta, theta0)
+    test_prediction = classify(val_feature_matrix, theta, theta0)
+    training_accuracy = accuracy(train_prediction, train_labels)
+    test_accuracy = accuracy(test_prediction, val_labels)
+
+    return (training_accuracy, test_accuracy)
 
 
 def extract_words(input_string):
