@@ -86,7 +86,7 @@ def perceptron_single_step_update(
     loss = lambda theta, theta0, x, y: y*(x @ theta + theta0) <= 0
     if loss(current_theta, current_theta_0, feature_vector, label):
         return (current_theta + label * feature_vector, current_theta_0 + label)
-        
+
     return (current_theta, current_theta_0)
 
 
@@ -116,11 +116,14 @@ def perceptron(feature_matrix, labels, T):
     the feature matrix.
     """
     # Your code here
+    theta0 = 0
+    theta = np.zeros([feature_matrix.shape[1]])
     for t in range(T):
         for i in get_order(feature_matrix.shape[0]):
-            # Your code here
-            pass
-    raise NotImplementedError
+            xi = feature_matrix[i]
+            yi = labels[i]
+            theta, theta0 = perceptron_single_step_update(xi, yi, theta, theta0)
+    return (theta, theta0)
 
 
 def average_perceptron(feature_matrix, labels, T):
