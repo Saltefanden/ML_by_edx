@@ -116,10 +116,11 @@ def perceptron(feature_matrix, labels, T):
     the feature matrix.
     """
     # Your code here
+    nsamples, nfeatures = feature_matrix.shape
     theta0 = 0
-    theta = np.zeros([feature_matrix.shape[1]])
+    theta = np.zeros(nfeatures)
     for t in range(T):
-        for i in get_order(feature_matrix.shape[0]):
+        for i in get_order(nsamples):
             xi = feature_matrix[i]
             yi = labels[i]
             theta, theta0 = perceptron_single_step_update(xi, yi, theta, theta0)
