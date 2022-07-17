@@ -83,7 +83,11 @@ def perceptron_single_step_update(
     completed.
     """
     # Your code here
-    raise NotImplementedError
+    loss = lambda theta, theta0, x, y: y*(x @ theta + theta0) <= 0
+    if loss(current_theta, current_theta_0, feature_vector, label):
+        return (current_theta + label * feature_vector, current_theta_0 + label)
+        
+    return (current_theta, current_theta_0)
 
 
 def perceptron(feature_matrix, labels, T):
