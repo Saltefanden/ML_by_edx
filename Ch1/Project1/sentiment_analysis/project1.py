@@ -340,8 +340,8 @@ def bag_of_words(texts):
             if word not in word_count and word not in stopwords:
                 word_count[word] = 1
             elif word in word_count and word not in stopwords:
-                word_count[word] += 1
-    keys = [key for key, val in word_count.items() if val>3]
+                word_count[word] += 1 if len(word)<6 else 2
+    keys = [key for key, val in word_count.items() if val>4]
     dictionary = dict(map(reversed, enumerate(keys)))
     return dictionary
 
