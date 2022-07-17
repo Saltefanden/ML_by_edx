@@ -1,3 +1,6 @@
+# Specifics
+*.png
+
 # Tar files
 *.gz
 *.tar
