@@ -106,8 +106,8 @@ test_bow_features = p1.extract_bow_feature_vectors(test_texts, dictionary)
 #-------------------------------------------------------------------------------
 
 
-# train_accuracy, test_accuracy =  p1.classifier_accuracy(p1.pegasos, train_bow_features, test_bow_features, train_labels, test_labels, T = 25, L=0.01 )
-# print(f"{test_accuracy = }")
+train_accuracy, test_accuracy =  p1.classifier_accuracy(p1.pegasos, train_bow_features, test_bow_features, train_labels, test_labels, T = 25, L=0.01 )
+print(f"{train_accuracy = }\n{test_accuracy = }")
 
 
 #-------------------------------------------------------------------------------
@@ -115,14 +115,14 @@ test_bow_features = p1.extract_bow_feature_vectors(test_texts, dictionary)
 # accurate algorithm with the optimal choice of hyperparameters.
 #-------------------------------------------------------------------------------
 
-theta, theta0 = p1.pegasos(train_bow_features, train_labels, T=25, L=0.01)
+# theta, theta0 = p1.pegasos(train_bow_features, train_labels, T=25, L=0.01)
 
 
-best_theta = theta # Your code here
-wordlist   = [word for (idx, word) in sorted(zip(dictionary.values(), dictionary.keys()))]
-sorted_word_features = utils.most_explanatory_word(best_theta, wordlist)
-print("Most Explanatory Word Features")
-print(sorted_word_features[:10])
+# best_theta = theta # Your code here
+# wordlist   = [word for (idx, word) in sorted(zip(dictionary.values(), dictionary.keys()))]
+# sorted_word_features = utils.most_explanatory_word(best_theta, wordlist)
+# print("Most Explanatory Word Features")
+# print(sorted_word_features[:10])
 
-print("Most Explanatory Word Features for negative review")
-print(sorted_word_features[:-10:-1])
+# print("Most Explanatory Word Features for negative review")
+# print(sorted_word_features[:-10:-1])
