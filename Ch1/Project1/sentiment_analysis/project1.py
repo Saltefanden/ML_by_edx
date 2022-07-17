@@ -157,7 +157,18 @@ def average_perceptron(feature_matrix, labels, T):
     find a sum and divide.
     """
     # Your code here
-    raise NotImplementedError
+    nsamples, nfeatures = feature_matrix.shape
+    theta,      theta0      = np.zeros(nfeatures), 0
+    theta_sum,  theta0_sum  = np.zeros(nfeatures), 0
+    w = 1/(nsamples * T)
+    for t in range(T):
+        for i in get_order(nsamples):
+            xi = feature_matrix[i]
+            yi = labels[i]
+            theta, theta0 = perceptron_single_step_update(xi, yi, theta, theta0)
+            theta_sum += theta
+            theta0_sum += theta0
+    return (w * theta_sum, w * theta0_sum)
 
 
 def pegasos_single_step_update(
