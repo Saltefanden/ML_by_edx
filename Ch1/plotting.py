@@ -1,6 +1,6 @@
 from data_def import xpos, xneg, x_def, y_def
 import matplotlib.pyplot as plt
-from Perceptron import perceptron
+from Perceptron import perceptron, avg_perceptron
 from StochasticGradientDescend import stochastic_gradient_descend
 import random 
 import Project1.sentiment_analysis.project1 as p1
@@ -15,7 +15,8 @@ xy = list(zip(x_def,y_def))
 random.shuffle(xy)
 x_def, y_def = list(zip(*xy))
 
-theta, theta0 = perceptron(x_def, y_def,max_iter=10000)
+# theta, theta0 = perceptron(x_def, y_def,max_iter=10000)
+theta, theta0 = avg_perceptron(x_def, y_def,max_iter=10000)
 # theta, theta0 = stochastic_gradient_descend(x_def, y_def,max_iter=100_000, R_lambda=1)
 # theta, theta0 = p1.average_perceptron(np.array(x_def), np.array(y_def),10_000)
 

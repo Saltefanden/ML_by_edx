@@ -30,6 +30,25 @@ def perceptron(X, Y, max_iter=40):
     print(f"{converged=}")
     return theta, theta0
 
+
+def avg_perceptron(X, Y, max_iter=40):
+    wrongly_classfied = lambda theta, theta0, x, y: y*(dot(theta, x) + theta0) <= 0
+    theta = [0] * len(X[0])
+    theta0 = 0
+    theta_sum, theta0_sum = [0] * len(X[0]), 0
+    w = 1/ (max_iter *len(theta) ) 
+    for i in range(max_iter):
+        converged = True
+        for x, y in zip(X, Y):
+            if wrongly_classfied(theta, theta0, x, y):
+                theta = list(map(lambda theta, x: theta + y*x, theta, x))
+                theta0 += y * eucl(theta)**2 /abs(theta0+1)
+                converged = False
+            theta_sum = list(map(lambda x,y: x+y, theta_sum, theta))
+            theta0_sum += theta0
+    print(f"{converged=}")
+    return list(map(lambda theta: w * theta, theta)), w * theta0
+
 # print(base_perceptron([(1,2), (3,2), (3,3)], [1, -1, 1]))
 # print(perceptron([(1,2), (3,2), (3,3)], [1, -1, 1]))
 
