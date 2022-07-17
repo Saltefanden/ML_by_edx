@@ -264,7 +264,7 @@ def classify(feature_matrix, theta, theta_0):
     be considered a positive classification.
     """
     # Your code here
-    raise NotImplementedError
+    return np.where(feature_matrix @ theta + theta_0>0, 1, -1) 
 
 
 def classifier_accuracy(
