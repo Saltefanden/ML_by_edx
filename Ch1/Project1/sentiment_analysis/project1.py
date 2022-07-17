@@ -333,12 +333,16 @@ def bag_of_words(texts):
     with open('./stopwords.txt', 'r') as f:
         stopwords = [line.strip('\n') for line in f]   
 
-    dictionary = {} # maps word to unique index
+    word_count = {} # maps word to count of appearances
     for text in texts:
         word_list = extract_words(text)
         for word in word_list:
-            if word not in dictionary and word not in stopwords:
-                dictionary[word] = len(dictionary)
+            if word not in word_count and word not in stopwords:
+                word_count[word] = 1
+            elif word in word_count and word not in stopwords:
+                word_count[word] += 1
+    keys = [key for key, val in word_count.items() if val>3]
+    dictionary = dict(map(reversed, enumerate(keys)))
     return dictionary
 
 
