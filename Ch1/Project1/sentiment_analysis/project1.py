@@ -56,7 +56,8 @@ def hinge_loss_full(feature_matrix, labels, theta, theta_0):
     loss across all of the points in the feature matrix.
     """
     # Your code here
-    return np.mean( [hinge_loss_single(feature_vector, label, theta, theta_0) for feature_vector, label in zip(feature_matrix, labels)] ) 
+    # return np.mean( [hinge_loss_single(feature_vector, label, theta, theta_0) for feature_vector, label in zip(feature_matrix, labels)] ) 
+    return np.mean( np.maximum(0, 1 - labels*(feature_matrix @ theta + theta_0))  )
 
 
 def perceptron_single_step_update(
