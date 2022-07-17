@@ -163,9 +163,7 @@ def average_perceptron(feature_matrix, labels, T):
     w = 1/(nsamples * T)
     for t in range(T):
         for i in get_order(nsamples):
-            xi = feature_matrix[i]
-            yi = labels[i]
-            theta, theta0 = perceptron_single_step_update(xi, yi, theta, theta0)
+            theta, theta0 = perceptron_single_step_update(feature_matrix[i], labels[i], theta, theta0)
             theta_sum += theta
             theta0_sum += theta0
     return (w * theta_sum, w * theta0_sum)
@@ -198,7 +196,11 @@ def pegasos_single_step_update(
     completed.
     """
     # Your code here
-    raise NotImplementedError
+    loss = lambda theta, theta0, x, y: y*(x @ theta + theta0) <= 1
+    if loss(current_theta, current_theta_0, feature_vector, label):
+        return (current_theta * (1-eta*L) + eta* label * feature_vector, current_theta_0 + eta*label)
+
+    return (current_theta * (1-eta*L), current_theta_0)
 
 
 def pegasos(feature_matrix, labels, T, L):
