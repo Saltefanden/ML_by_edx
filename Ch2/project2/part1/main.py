@@ -41,9 +41,9 @@ def run_linear_regression_on_MNIST(lambda_factor=1):
 
 
 # Don't run this until the relevant functions in linear_regression.py have been fully implemented.
-print('Linear Regression test_error =', run_linear_regression_on_MNIST(lambda_factor=1))
-print('Linear Regression test_error =', run_linear_regression_on_MNIST(lambda_factor=.1))
-print('Linear Regression test_error =', run_linear_regression_on_MNIST(lambda_factor=.01))
+# print('Linear Regression test_error =', run_linear_regression_on_MNIST(lambda_factor=1))
+# print('Linear Regression test_error =', run_linear_regression_on_MNIST(lambda_factor=.1))
+# print('Linear Regression test_error =', run_linear_regression_on_MNIST(lambda_factor=.01))
 
 
 #######################################################################
@@ -67,7 +67,7 @@ def run_svm_one_vs_rest_on_MNIST():
     return test_error
 
 
-# print('SVM one vs. rest test_error:', run_svm_one_vs_rest_on_MNIST())
+print('SVM one vs. rest test_error:', run_svm_one_vs_rest_on_MNIST())
 
 
 def run_multiclass_svm_on_MNIST():
