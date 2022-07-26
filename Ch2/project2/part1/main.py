@@ -148,7 +148,7 @@ def run_softmax_on_MNIST_mod3(temp_parameter=1):
 
 
 # TODO: Run run_softmax_on_MNIST_mod3(), report the error rate
-print('softmax mod3 test_error=', run_softmax_on_MNIST_mod3(temp_parameter=1))
+# print('softmax mod3 test_error=', run_softmax_on_MNIST_mod3(temp_parameter=1))
 
 
 #######################################################################
@@ -163,10 +163,10 @@ print('softmax mod3 test_error=', run_softmax_on_MNIST_mod3(temp_parameter=1))
 n_components = 18
 
 ###Correction note:  the following 4 lines have been modified since release.
-# train_x_centered, feature_means = center_data(train_x)
-# pcs = principal_components(train_x_centered)
-# train_pca = project_onto_PC(train_x, pcs, n_components, feature_means)
-# test_pca = project_onto_PC(test_x, pcs, n_components, feature_means)
+train_x_centered, feature_means = center_data(train_x)
+pcs = principal_components(train_x_centered)
+train_pca = project_onto_PC(train_x, pcs, n_components, feature_means)
+test_pca = project_onto_PC(test_x, pcs, n_components, feature_means)
 
 # train_pca (and test_pca) is a representation of our training (and test) data
 # after projecting each example onto the first 18 principal components.
