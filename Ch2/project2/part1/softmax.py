@@ -31,11 +31,10 @@ def compute_probabilities(X, theta, temp_parameter):
     Returns:
         H - (k, n) NumPy array, where each entry H[j][i] is the probability that X[i] is labeled as j
     """
-    c = (theta @ X.T).max(axis=0) / temp_parameter
-    shifted = theta@X.T/temp_parameter - c
-    expf = np.exp(shifted)
-    col_sums = expf.sum(axis=0)
-    return expf/col_sums
+    thX = theta @ X.T / temp_parameter
+    c = thX.max(axis=0)
+    e_thX = np.exp(thX - c)
+    return e_thX/e_thX.sum(axis=0)
     
     
 
