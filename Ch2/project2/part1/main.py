@@ -116,6 +116,7 @@ def run_softmax_on_MNIST(temp_parameter=1):
 
     # TODO: add your code here for the "Using the Current Model" question in tab 6.
     #      and print the test_error_mod3
+    print(f"{compute_test_error_mod3(test_x, test_y, theta, temp_parameter) = }")
     return test_error
 
 
