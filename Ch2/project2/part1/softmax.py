@@ -105,8 +105,7 @@ def update_y(train_y, test_y):
         test_y_mod3 - (n, ) NumPy array containing the new labels (a number between 0-2)
                     for each datapoint in the test set
     """
-    #YOUR CODE HERE
-    raise NotImplementedError
+    return np.mod(train_y, 3), np.mod(test_y, 3)
 
 def compute_test_error_mod3(X, Y, theta, temp_parameter):
     """
@@ -123,8 +122,14 @@ def compute_test_error_mod3(X, Y, theta, temp_parameter):
     Returns:
         test_error - the error rate of the classifier (scalar)
     """
-    #YOUR CODE HERE
-    raise NotImplementedError
+    # probabilities = compute_probabilities(X, theta, temp_parameter)
+    # max_probability = probabilities.argmax(axis=0) # gets the most probable y value
+    y_estimate = get_classification(X, theta, temp_parameter)
+    y_estimate_mod3 = np.mod(y_estimate, 3)
+    Y_mod3 = np.mod(Y, 3)
+    return np.mean(y_estimate_mod3 != Y_mod3)
+
+
 
 def softmax_regression(X, Y, temp_parameter, alpha, lambda_factor, k, num_iterations):
     """
