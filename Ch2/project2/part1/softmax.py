@@ -125,9 +125,8 @@ def compute_test_error_mod3(X, Y, theta, temp_parameter):
     # probabilities = compute_probabilities(X, theta, temp_parameter)
     # max_probability = probabilities.argmax(axis=0) # gets the most probable y value
     y_estimate = get_classification(X, theta, temp_parameter)
-    y_estimate_mod3 = np.mod(y_estimate, 3)
-    Y_mod3 = np.mod(Y, 3)
-    return np.mean(y_estimate_mod3 != Y_mod3)
+    y_estimate_mod3 = np.remainder(y_estimate, 3)
+    return np.mean(y_estimate_mod3 != Y)
 
 
 
