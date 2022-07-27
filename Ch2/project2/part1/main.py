@@ -188,13 +188,17 @@ plt.savefig('john.png')
 #       the first and second MNIST images as reconstructed solely from
 #       their 18-dimensional principal component representation.
 #       Compare the reconstructed images with the originals.
-# firstimage_reconstructed = reconstruct_PC(train_pca[0, ], pcs, n_components, train_x, feature_means)#feature_means added since release
+firstimage_reconstructed = reconstruct_PC(train_pca[0, ], pcs, n_components, train_x, feature_means)#feature_means added since release
 # plot_images(firstimage_reconstructed)
 # plot_images(train_x[0, ])
+plot_images_png(firstimage_reconstructed, './reconstruct/1')
+plot_images_png(train_x[0, ], './reconstruct/2')
 
-# secondimage_reconstructed = reconstruct_PC(train_pca[1, ], pcs, n_components, train_x, feature_means)#feature_means added since release
+secondimage_reconstructed = reconstruct_PC(train_pca[1, ], pcs, n_components, train_x, feature_means)#feature_means added since release
 # plot_images(secondimage_reconstructed)
 # plot_images(train_x[1, ])
+plot_images_png(secondimage_reconstructed, './reconstruct/3')
+plot_images_png(train_x[1, ], './reconstruct/4')
 
 
 ## Cubic Kernel ##

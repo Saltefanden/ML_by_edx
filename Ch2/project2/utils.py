@@ -17,6 +17,11 @@ def plot_images(X):
         plt.axis('off')
     plt.show()
 
+def plot_images_png(X, filename):
+    plot_images(X)
+    plt.savefig(filename + '.png')
+    plt.close()
+
 
 def pick_examples_of(X, Y, labels, total_count):
     bool_arr = None
