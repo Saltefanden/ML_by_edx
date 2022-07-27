@@ -38,5 +38,13 @@ def rbf_kernel(X, Y, gamma):
         Returns:
             kernel_matrix - (n, m) Numpy array containing the kernel matrix
     """
-    # YOUR CODE HERE
-    raise NotImplementedError
+    sX = np.sum(X**2,axis=1)
+    sY = np.sum(Y**2,axis=1)
+    inner_prod = X @ Y.T
+
+    SY, SX = np.meshgrid(sY, sX)
+
+    # Using: |x-y|^2 = |x|^2 + |y|^2 - 2*<x,y>
+    norm_difference = SX + SY - 2 * inner_prod
+
+    return np.exp(-gamma * norm_difference)
