@@ -141,7 +141,7 @@ def run_softmax_on_MNIST_mod3(temp_parameter=1):
     """
     train_x, train_y, test_x, test_y = get_MNIST_data()
     train_y, test_y = update_y(train_y, test_y)
-    theta, cost_function_history = softmax_regression(train_x, train_y, temp_parameter, alpha=0.3, lambda_factor=1.0e-4, k=10, num_iterations=150)
+    theta, cost_function_history = softmax_regression(train_x, train_y, temp_parameter, alpha=0.3, lambda_factor=1.0e-4, k=3, num_iterations=150)
     # plot_cost_function_over_time(cost_function_history)
     test_error = compute_test_error_mod3(test_x, test_y, theta, temp_parameter)
     return test_error
