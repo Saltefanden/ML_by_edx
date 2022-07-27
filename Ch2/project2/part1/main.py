@@ -160,13 +160,13 @@ def run_softmax_on_MNIST_mod3(temp_parameter=1):
 # TODO: First fill out the PCA functions in features.py as the below code depends on them.
 
 
-n_components = 18
+# n_components = 18
 
 ###Correction note:  the following 4 lines have been modified since release.
-train_x_centered, feature_means = center_data(train_x)
-pcs = principal_components(train_x_centered)
-train_pca = project_onto_PC(train_x, pcs, n_components, feature_means)
-test_pca = project_onto_PC(test_x, pcs, n_components, feature_means)
+# train_x_centered, feature_means = center_data(train_x)
+# pcs = principal_components(train_x_centered)
+# train_pca = project_onto_PC(train_x, pcs, n_components, feature_means)
+# test_pca = project_onto_PC(test_x, pcs, n_components, feature_means)
 
 # train_pca (and test_pca) is a representation of our training (and test) data
 # after projecting each example onto the first 18 principal components.
@@ -174,31 +174,31 @@ test_pca = project_onto_PC(test_x, pcs, n_components, feature_means)
 
 # TODO: Train your softmax regression model using (train_pca, train_y)
 #       and evaluate its accuracy on (test_pca, test_y).
-theta, cost_function_history = softmax_regression(train_pca, train_y, temp_parameter=1, alpha=0.3, lambda_factor=1.0e-4, k=10, num_iterations=150)
-test_error = compute_test_error(test_pca, test_y, theta, temp_parameter=1)
-print(test_error)
+# theta, cost_function_history = softmax_regression(train_pca, train_y, temp_parameter=1, alpha=0.3, lambda_factor=1.0e-4, k=10, num_iterations=150)
+# test_error = compute_test_error(test_pca, test_y, theta, temp_parameter=1)
+# print(test_error)
 
 # TODO: Use the plot_PC function in features.py to produce scatterplot
 #       of the first 100 MNIST images, as represented in the space spanned by the
 #       first 2 principal components found above.
-plot_PC(train_x[range(000, 100), ], pcs, train_y[range(000, 100)], feature_means)#feature_means added since release
-plt.savefig('john.png')
+# plot_PC(train_x[range(000, 100), ], pcs, train_y[range(000, 100)], feature_means)#feature_means added since release
+# plt.savefig('john.png')
 
 # TODO: Use the reconstruct_PC function in features.py to show
 #       the first and second MNIST images as reconstructed solely from
 #       their 18-dimensional principal component representation.
 #       Compare the reconstructed images with the originals.
-firstimage_reconstructed = reconstruct_PC(train_pca[0, ], pcs, n_components, train_x, feature_means)#feature_means added since release
+# firstimage_reconstructed = reconstruct_PC(train_pca[0, ], pcs, n_components, train_x, feature_means)#feature_means added since release
 # plot_images(firstimage_reconstructed)
 # plot_images(train_x[0, ])
-plot_images_png(firstimage_reconstructed, './reconstruct/1')
-plot_images_png(train_x[0, ], './reconstruct/2')
+# plot_images_png(firstimage_reconstructed, './reconstruct/1')
+# plot_images_png(train_x[0, ], './reconstruct/2')
 
-secondimage_reconstructed = reconstruct_PC(train_pca[1, ], pcs, n_components, train_x, feature_means)#feature_means added since release
+# secondimage_reconstructed = reconstruct_PC(train_pca[1, ], pcs, n_components, train_x, feature_means)#feature_means added since release
 # plot_images(secondimage_reconstructed)
 # plot_images(train_x[1, ])
-plot_images_png(secondimage_reconstructed, './reconstruct/3')
-plot_images_png(train_x[1, ], './reconstruct/4')
+# plot_images_png(secondimage_reconstructed, './reconstruct/3')
+# plot_images_png(train_x[1, ], './reconstruct/4')
 
 
 ## Cubic Kernel ##
