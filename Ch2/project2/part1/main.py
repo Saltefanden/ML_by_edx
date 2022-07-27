@@ -224,13 +224,25 @@ def run_softmax_on_MNIST_mod3(temp_parameter=1):
 # test_error = compute_test_error(test_cube, test_y, theta, temp_parameter=1)
 # print(test_error) # =0.0849
 
+# n_components = 10
+# train_x_centered, feature_means = center_data(train_x)
+# pcs = principal_components(train_x_centered)
+# train_pca10 = project_onto_PC(train_x, pcs, n_components, feature_means)
+# test_pca10 = project_onto_PC(test_x, pcs, n_components, feature_means)
+# clf = SVM.SVC(random_state=0, kernel='poly', degree=3, gamma='auto') # gamma='auto' from the forum post discussing the sklearn update
+# clf.fit(X=train_pca10, y=train_y)
+# y_prediction = clf.predict(test_pca10)
+# error = compute_test_error_svm(test_y, y_prediction)
+# print(error) # = 0.06879
+
+
 n_components = 10
 train_x_centered, feature_means = center_data(train_x)
 pcs = principal_components(train_x_centered)
 train_pca10 = project_onto_PC(train_x, pcs, n_components, feature_means)
 test_pca10 = project_onto_PC(test_x, pcs, n_components, feature_means)
-clf = SVM.SVC(random_state=0, kernel='poly', degree=3, gamma='auto') # gamma='auto' from the forum post discussing the sklearn update
+clf = SVM.SVC(random_state=0, kernel='rbf', degree=3, gamma='auto') # gamma='auto' from the forum post discussing the sklearn update
 clf.fit(X=train_pca10, y=train_y)
 y_prediction = clf.predict(test_pca10)
 error = compute_test_error_svm(test_y, y_prediction)
-print(error) # = 0.06879
+print(error) # = 0.05579
