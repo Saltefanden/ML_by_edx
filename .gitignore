@@ -1,6 +1,7 @@
 # Specifics
 *.png
 *.pdf
+*.jpg
 # Tar files
 *.gz
 *.tar
