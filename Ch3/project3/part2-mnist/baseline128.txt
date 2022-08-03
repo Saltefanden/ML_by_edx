@@ -1,0 +1,51 @@
+-------------
+Epoch 1:
+
+Train loss: 0.366366 | Train accuracy: 0.897118
+Val loss:   0.178310 | Val accuracy:   0.947694
+-------------
+Epoch 2:
+
+Train loss: 0.174226 | Train accuracy: 0.948948
+Val loss:   0.125099 | Val accuracy:   0.966410
+-------------
+Epoch 3:
+
+Train loss: 0.122101 | Train accuracy: 0.965601
+Val loss:   0.103659 | Val accuracy:   0.970755
+-------------
+Epoch 4:
+
+Train loss: 0.094431 | Train accuracy: 0.973325
+Val loss:   0.091761 | Val accuracy:   0.974098
+-------------
+Epoch 5:
+
+Train loss: 0.076830 | Train accuracy: 0.978457
+Val loss:   0.085242 | Val accuracy:   0.975100
+-------------
+Epoch 6:
+
+Train loss: 0.064048 | Train accuracy: 0.982217
+Val loss:   0.079974 | Val accuracy:   0.975434
+-------------
+Epoch 7:
+
+Train loss: 0.054349 | Train accuracy: 0.985033
+Val loss:   0.076425 | Val accuracy:   0.976604
+-------------
+Epoch 8:
+
+Train loss: 0.046614 | Train accuracy: 0.987385
+Val loss:   0.074461 | Val accuracy:   0.976771
+-------------
+Epoch 9:
+
+Train loss: 0.039955 | Train accuracy: 0.989478
+Val loss:   0.073680 | Val accuracy:   0.977774
+-------------
+Epoch 10:
+
+Train loss: 0.034460 | Train accuracy: 0.991368
+Val loss:   0.073243 | Val accuracy:   0.977941
+Loss on test set:0.07339137314652479 Accuracy on test set: 0.9769631410256411

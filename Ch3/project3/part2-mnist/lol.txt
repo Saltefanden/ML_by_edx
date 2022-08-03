@@ -1,0 +1,5 @@
+Baseline: Accuracy on test set:                 0.9204727564102564 Val accuracy:   0.932487
+Batch size 64: Accuracy on test set:            0.9298878205128205 Val accuracy:   0.939852
+Learning rate 0.01: Accuracy on test set:       0.9206730769230769 Val accuracy:   0.934659
+Momentum 0.9: Accuracy on test set:             0.8778044871794872 Val accuracy:   0.885695
+LeakyReLU: Accuracy on test set:                0.9207732371794872 Val accuracy:   0.931985

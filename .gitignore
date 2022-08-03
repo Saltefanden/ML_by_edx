@@ -2,9 +2,13 @@
 *.png
 *.pdf
 *.jpg
+
 # Tar files
 *.gz
 *.tar
+
+# Other binaries
+*.pt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
