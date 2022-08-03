@@ -36,7 +36,10 @@ def compute_probabilities(X, theta, temp_parameter):
     e_thX = np.exp(thX - c)
     return e_thX/e_thX.sum(axis=0)
     
-    
+
+def compute_kernel_probabilities(X, theta, temp_parameter, kernel):
+    K_xy = kernel(X, 'This might be work for the future....')
+
 
 def compute_cost_function(X, Y, theta, lambda_factor, temp_parameter):
     """
