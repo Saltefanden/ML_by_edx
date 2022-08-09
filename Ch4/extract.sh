@@ -1,0 +1,1 @@
+curl https://courses.edx.org/assets/courseware/v1/d548226c37482952193ff6f363761b54/asset-v1:MITx+6.86x+2T2022+type@asset+block/resources_netflix.tar.gz | tar -xz 
